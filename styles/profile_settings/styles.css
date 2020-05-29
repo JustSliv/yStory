@@ -1,0 +1,66 @@
+.content{
+height: 516px;
+margin-top: 6.42%;
+margin-bottom: 15%;
+margin-left: 20%;
+margin-right: 20%;
+border-radius: 30px;
+border-width: 2px;
+border-color: grey;
+border-style: solid;
+}
+
+.topic{
+text-align: center;
+}
+
+.reg_data{
+clear:both;
+text-align:right;
+line-height:25px;
+margin-top: 10%;
+}
+
+div.main label {
+float:left;
+padding-right:10px;
+}
+
+.nickname{
+margin-left: 32%;
+}
+
+.main {
+float:left;
+margin-left: 25%;
+}
+
+.data{
+border-style: solid;
+border-color: black;
+border-radius: 4px;
+border-width: 1px;
+}
+.image{
+float:left;
+margin-left: 5%;
+margin-top: 4%;
+height: 128px;
+width: 128px;
+border-style: solid;
+border-color: black;
+border-radius: 4px;
+border-width: 1px;
+}
+.avatar{
+width: 150px;
+height: 178px;
+margin-right: 0;
+
+}
+.change_avatar{
+float:left;
+position:relative;
+margin: 0;
+
+}
