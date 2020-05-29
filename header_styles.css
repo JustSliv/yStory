@@ -1,0 +1,65 @@
+.top-header {
+	background: #BF8440;
+}
+
+.low-header {
+	background: #F7AA50;
+}
+
+#btn_search {
+	border: 1px solid #6F4F28;
+	margin-left: 20px;
+}
+
+#btn_login {
+	border: 1px solid #6F4F28;
+	margin-right: 10px;
+}
+
+#btn_reg {
+	border: 1px solid #6F4F28;
+}
+
+#search_input {
+	border: 1px solid #6F4F28;
+}
+
+.lowheader-link a{
+	font-weight: bold;
+	font-size: 1.6em;
+	margin: -10px 35px -10px 35px;
+	color: red;
+}
+
+.low-header {
+	border-bottom: 1px solid #797979;
+}
+
+/*** Extra small devices ***/
+@media (max-width: 575px) {
+	#search_input {
+		margin-top: 15px;
+		width: 200px;
+	}
+
+	#btn_search {
+		margin-top: 15px;
+	}
+
+	#logo_img {
+		width: 80%;
+		height: 80%;
+	}
+}
+
+/*** Medium devices ***/
+@media (max-width: 991px) {
+	#btn_login, #btn_reg {
+		margin-top: 10px;
+	}
+
+	.lowheader-link {
+		text-align: center;
+		margin-top: 10px;
+	}
+}

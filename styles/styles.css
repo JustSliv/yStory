@@ -1,0 +1,127 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	height: 100%;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+	background-color: #f7f7f7;
+}
+
+.main_info {
+	flex: 1 0 auto;
+}
+
+#sticky-footer {
+	flex: 0 0 auto;
+}
+
+/*** MAIN CINTANT ***/
+
+.main_info {
+	height: 100%;
+	background-color: white;
+	border: 1px solid lightgray;
+	border-radius: 25px;
+	margin: 30px 0px;
+	padding-top: 15px!important;
+	padding-right: 60px!important;
+	padding-bottom: 15px!important;
+	padding-left: 60px!important;
+}
+
+.image-block {
+	margin: 0 25px;
+}
+
+.news_header {
+	margin-top: 45px;
+	margin-bottom: 50px;
+}
+/*** FOOTER ***/
+
+footer {
+	background-color: #dedede;
+	padding: 10px;
+	border: 1px solid #797979;
+	font-family: 'Oswald', sans-serif;
+}
+
+.help_message {
+	font-size: 1.75em;
+	text-transform: uppercase;
+}
+
+.help_message a {
+	color: black;
+	text-decoration: none;
+}
+
+.links a {
+	color: black;
+	margin: 0 6px;
+}
+
+@media (max-width: 576px) {
+	.fab{
+		margin-top: 5px!important;
+		font-size: 2em!important;
+	}
+
+	.help_message {
+
+	}
+}
+
+/*** USER PAGE ***/
+
+.userTab {
+	border: 1px solid #e1e2e6;
+	height: 500px;
+	padding: 15px;
+}
+
+#lists-tab,
+#subcribes-tab,
+#subscribers-tab,
+#publications-tab,
+#note-tab {
+	border-color: #e1e2e6;
+}
+
+@media (max-width: 1199px) {
+	.tabbable {
+		border: 1px solid #e1e2e6;
+	}
+}
+
+.avatar-img {
+	border-radius: 15px;
+	border: 1px solid black;
+}
+
+/*** Tabs ***/
+
+.tabbable, .nav-tabs {
+	overflow-x: auto;
+	overflow-y: hidden;
+	flex-wrap: nowrap!important;
+}
+
+.tabbable, .nav-tabs, .nav-link {
+	white-space: nowrap;
+}
+
+.btn-settings {
+	background-color: #F7AA4F;
+	color: white;
+	border: 1px solid #B67426!important;
+	margin-top: 15px;
+	margin-left: 15px!important;
+}
