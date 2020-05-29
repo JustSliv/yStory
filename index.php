@@ -29,7 +29,7 @@
 	<div class="wrapper">
 		<?php require_once "header.html" ?>
 		<div class="main_info container">
-			<h3 class="text-center">
+			<h3 class="text-center" id="popular-block">
 				Популярное
 			</h3>
 			<hr>
@@ -46,7 +46,7 @@
 
 
 			<hr>
-			<h3 class="text-center news_header">
+			<h3 class="text-center news_header" id="news-block">
 				Новости сайта
 			</h3>
 			<div class="row site_news">

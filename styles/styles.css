@@ -125,3 +125,143 @@ footer {
 	margin-top: 15px;
 	margin-left: 15px!important;
 }
+
+/*** SEARCH+ ***/
+div.features {
+    margin: 2% 0 2% 15%;
+	border: 2px solid lightgray;
+    border-radius: 50px;
+    padding: 50px 0 0 100px;
+/*    width: 1380px;*/
+    width: 73%;
+    overflow-x: hidden;
+}
+div.head label {
+    font-weight: bold;
+    font-size: 16pt;
+}
+div.head label[for="auth-publish"] {
+    margin-left: 35px;
+}
+div.head input {
+    width: 900px;
+    height: 40px;
+    border-radius: 5px;
+    outline: none;
+    margin: 5px;
+    margin-left: 20px;
+    padding: 10px;
+}
+div.head #name-publish {
+    width: 1100px;
+}
+div.genres {
+    position: relative;
+    top: -45px;
+    left: 1075px;
+}
+div.genres .genre-title {
+    font-weight: bold;
+    font-size: 16pt;
+}
+div.genres ul.list-genres {
+    position: relative;
+    top: -40px;
+    left: 80px;
+    font-size: 14pt;
+    list-style-type: none;
+}
+div.status-publish {
+    position: relative;
+    top: -50px;
+}
+div.status-publish .status-title {
+    font-weight: bold;
+    font-size: 16pt;
+}
+div.status-publish ul.list-status {
+    position: relative;
+    top: -40px;
+    left: 80px;
+    font-size: 14pt;
+    list-style-type: none;
+}
+div.rates {
+    position: relative;
+    top: -50px;
+}
+div.rates label {
+    font-weight: bold;
+    font-size: 16pt;
+}
+div.rates input {
+    width: 70px;
+    border-radius: 5px;
+    outline: none;
+    padding: 10px;
+}
+div.sort-by {
+    position: relative;
+    top: -30px;
+}
+div.sort-by .sort-title {
+    font-weight: bold;
+    font-size: 16pt;
+}
+div.sort-by ul.list-sorts {
+    position: relative;
+    left: 80px;
+    font-size: 14pt;
+    list-style-type: none;
+}
+div.features button.btn-primary {
+    float: right;
+    width: 160px;
+    height: 60px;
+    font-size: 14pt;
+    margin-right: 50px;
+    margin-bottom: 50px;
+}
+/***************/
+
+/*** FAQ ***/
+div.content {
+    margin: 2% 0 16% 12%;
+    border: 2px solid lightgray;
+    border-radius: 5px;
+    width: 75%;
+}
+div.content h2 {
+    text-align: center;
+}
+div.question {
+    position: relative;
+    top: -5px;
+    left: 10%;
+    padding: 5% 0 0% 5%;
+}
+div.question:last-child {
+    padding-bottom: 10%;
+}
+div.question .title {
+    position: absolute;
+    top: 20px;
+    left: 2%;
+    font-size: 16pt;
+    font-weight: bold;
+    border: 3px solid black;
+    padding: 5px; 
+}
+div.content-question {
+    position: absolute;
+    top: 60px;
+    left: 2%;
+    margin: 0.5% 0 0 0;
+    width: 83%;
+    border: 2px solid lightgray;
+    color: white;
+    background-color: gray;
+    z-index: 1222;
+    display: none;
+}
+/***********/
