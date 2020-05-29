@@ -30,23 +30,44 @@
 <body>
 	<div class="wrapper">
 		<?php require_once "header.html" ?>
+
         <div class="content">
             <h4  class="topic">Настройки профиля</h4>
-            <div id="avatar" class="avatar">
-                <img id="avatar" class="image" src="images/rsz_avatar-default.png">
-               <input  class="change_avatar" type="submit" value="Сменить аватар"></input>
+            <div class="main">
+               <div class="data">
+                    <label class="nick" for="nickname">Ник:</label>
+                    <input class="info" type="text" id="nickname" />
+                </div>
+                <div class="data">
+                    <label for="mail">Адрес электронной почты:</label>
+                    <input class="info" type="text" id="mail" />
+                </div>
+                <div class="strip"></div>
+
+                    <h5 class="pass_change_topic">Смена пароля</h5>
+
+                <div class="pass_change">
+                    <div class="data">
+                        <label class="old_pass"for="old_pass">Старый пароль:</label>
+                        <input class="info" type="text" id="old_pass" />
+                    </div>
+                    <div class="data">
+                        <label class="new_pass"for="new_pass">Новый пароль:</label>
+                        <input class="info" type="text" id="new_pass" />
+                    </div>
+                </div>
+                <input class="change_avatar" type="submit" value="Сменить пароль"></input>
+                <input class="save" type="submit" value="Сохранить"></input>
             </div>
 
-            <div class="main">
-                <div class="reg_data">
-                <label class="nickname" for="nickname" >Никнейм:</label>
-                <input id="nickname" class="data" type="text" placeholder="{nickname}"></input><br>
+
+            <div class="avatar">
+                <div>
+                    <img class="image" src="images/rsz_avatar-default.png">
                 </div>
-                <div class="reg_data">
-                <label for="mail">Адрес электронной почты: </label>
-                <input id="mail" class="data" type="text"placeholder="{mail}"></input><br>
+                <input class="change_avatar" type="submit" value="Сменить аватар"></input>
             </div>
-            </div>
+
         </div>
 		<?php require_once "footer.html" ?>
 	</div>
