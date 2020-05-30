@@ -14,7 +14,7 @@ html, body {
 	background-color: #f7f7f7;
 }
 
-.main_info {
+.main-info {
 	flex: 1 0 auto;
 }
 
@@ -24,7 +24,7 @@ html, body {
 
 /*** MAIN CINTANT ***/
 
-.main_info {
+.main-info {
 	height: 100%;
 	background-color: white;
 	border: 1px solid lightgray;
@@ -124,6 +124,13 @@ footer {
 	border: 1px solid #B67426!important;
 	margin-top: 15px;
 	margin-left: 15px!important;
+}
+
+/*** REGISTRATION ***/
+#reg-btn {
+    margin-top: 25px;
+    background-color: orange;
+    border-color: #BF8440;
 }
 
 /*** SEARCH+ ***/

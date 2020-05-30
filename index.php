@@ -27,8 +27,8 @@
 </head>
 <body>
 	<div class="wrapper">
-		<?php require_once "header.html" ?>
-		<div class="main_info container">
+		<?php require_once "header.php" ?>
+		<div class="main-info container">
 			<h3 class="text-center" id="popular-block">
 				Популярное
 			</h3>

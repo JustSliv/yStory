@@ -22,7 +22,7 @@
 							<button type="button" class="btn btn-light" id="btn_login" data-toggle="modal" data-target="#exampleModal">Войти</button>
 						</li>
 						<li class="nav-item mr-auto">
-							<button type="button" class="btn btn-light" id="btn_reg">Зарегистрироваться</button>
+							<a href="registration.php"><button type="button" class="btn btn-light" id="btn_reg">Зарегистрироваться</button></a>
 						</li>
 					</ul>
 				</div>

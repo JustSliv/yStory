@@ -8,14 +8,13 @@
 	<!-- TITLE -->
 	<title>yStory</title>
 	<!-- CSS LINKS -->
-	<link rel="stylesheet" type="text/css" href="styles/reg/styles.css"/>
 	<link rel="stylesheet" href="styles/styles.css">
 	<link rel="stylesheet" type="text/css" href="styles/header-styles.css">
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-	<!-- Add the slick-theme.css if you want default styling -->
 	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.0/slick/slick.css"/>
-	<!-- Add the slick-theme.css if you want default styling -->
 	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.0/slick/slick-theme.css"/>
+	<link rel="stylesheet" type="text/css" href="slick-1.8.1/slick/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="slick-1.8.1/slick/slick-theme.css"/>
 	<!-- FONTS -->
 	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
 	<!-- SCRIPTS -->
@@ -23,29 +22,36 @@
 	<script type="text/javascript" href="scripts/script.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="slick-1.8.1/slick/slick.css"/>
-	<link rel="stylesheet" type="text/css" href="slick-1.8.1/slick/slick-theme.css"/>
+	
 
 </head>
 <body>
 	<div class="wrapper">
-		<?php require_once "header.html" ?>
-        <div class="content">
-            <h4 class="topic">Регистрация</h4>
-            <div class="reg_data">
-                <p>Логин:<br>
-                <input required class="data" type="text"></input>
-                <p>Пароль:<br>
-                <input required class="data" type="password"></input>
-                <p>Подтвердить пароль:<br>
-                <input required class="data" type="password"></input>
-                <p>Адрес электронной почты:<br>
-                <input required class="data" type="text"></input>
-                <p>Ваш ник на сайте:<br>
-                <input required class="data" type="text"></input>
-                <input class="reg_button" type="submit" value="Зарегистрироваться"></input>
-             </div>
-        </div>
+		<?php require_once "header.php" ?>
+		<div class="main-info container">
+			<h4 class="text-center">Регистрация</h4>
+			<form>
+				<div class="form-group">
+					<label for="inputLogin">Логин:</label>
+					<input required class="form-control" id="inputLogin" aria-describedby="loginHelp" type="text" placeholder="Введите логин">
+				</div>
+				<div class="form-group">
+					<label for="inputPass">Пароль:</label>
+					<input required class="form-control" id="inputPass" aria-describedby="passHelp" type="password" placeholder="Введите пароль">
+				</div>
+				<div class="form-group">
+					<label for="inputConfirm">Подтвердите пароль:</label>
+					<input required class="form-control" id="inputConfirm" aria-describedby="confirmHelp" type="password" placeholder="Подтвердите пароль">
+				</div>
+				<div class="form-group">
+					<label for="inputEmail">Адресс електронной почты:</label>
+					<input required class="form-control" id="inputEmail" aria-describedby="emailHelp" type="email" placeholder="Введите адрес електронной почты">
+				</div>
+				<div class="text-center">
+					<button type="submit" class="btn btn-primary" id="reg-btn">Подтвердить</button>
+				</div>
+			</form>
+		</div>
 		<?php require_once "footer.html" ?>
 	</div>
 
