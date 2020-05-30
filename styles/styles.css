@@ -393,6 +393,7 @@ div.question .title {
     font-size: 16pt;
     font-weight: bold;
     border: 3px solid black;
+    cursor: pointer;
     padding: 5px; 
 }
 div.content-question {
@@ -406,5 +407,30 @@ div.content-question {
     background-color: gray;
     z-index: 1222;
     display: none;
+}
+@media screen and (min-width: 600px) and (max-width: 940px) {
+    body {
+        overflow-y: hidden;
+    }
+    div.content {
+        margin: 2% 0 33% 12%;
+    }
+    div.question {
+        padding: 6% 0 0 6%;
+    }
+    div.question .title {
+        font-size: 10pt;
+        padding: 0;
+        margin-left: -50px;
+    }
+    div.content-question {
+        position: absolute;
+        top: 40px;
+        left: -40px;
+        width: 90%;
+    }
+}
+@media screen and (min-width: 1200px) and (max-width: 1600px) {
+    
 }
 /***********/
