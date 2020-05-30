@@ -132,7 +132,6 @@ div.features {
 	border: 2px solid lightgray;
     border-radius: 50px;
     padding: 50px 0 0 100px;
-/*    width: 1380px;*/
     width: 73%;
     overflow-x: hidden;
 }
@@ -221,6 +220,150 @@ div.features button.btn-primary {
     font-size: 14pt;
     margin-right: 50px;
     margin-bottom: 50px;
+}
+@media screen and (min-width: 600px) and (max-width: 940px){
+    div.features {
+        padding: 5%;
+    }
+    div.features div.head label {
+        font-size: 12pt;
+    }
+    div.head label[for="auth-publish"] {
+        margin-left: 30px;
+    }
+    div.head #name-publish {
+        width: 320px;
+    }
+    div.features div.head input {
+        width: 200px;
+    }
+    div.genres {
+        position: relative;
+        top: -35px;
+        left: 330px;
+    }
+    div.genres .genre-title {
+        font-size: 12pt;
+    }
+    div.genres ul.list-genres  {
+        position: relative;
+        top: -40px;
+        left: 60px;
+        font-size: 12pt;
+    }
+    div.status-publish {
+        position: relative;
+        top: -60px;
+        left: 0;
+    }
+    div.status-publish .status-title {
+        font-size: 12pt;
+    }
+    div.status-publish ul.list-status {
+        position: relative;
+        top: -40px;
+        left: 75px;
+        font-size: 12pt;
+    }
+    div.rates {
+        position: relative;
+        top: -80px;
+        left: 0;
+    }
+    div.rates label {
+        font-size: 12pt;
+    }
+    div.rates input {
+        width: 40px;
+        padding: 5px;
+    }
+    div.sort-by {
+        position: relative;
+        top: -60px;
+        left: 0;
+    }
+    div.sort-by .sort-title {
+        font-size: 12pt;
+    }
+    div.sort-by ul.list-sorts {
+        font-size: 12pt;
+    }
+    div.features button.btn-primary {
+        width: 120px;
+        height: 40px;
+    }
+}
+@media screen and (min-width: 1200px) and (max-width: 1600px) {
+    div.features {
+        padding: 5% 0 0 8%;
+    }
+    div.features div.head label {
+        font-size: 13pt;
+    }
+    div.head label[for="auth-publish"] {
+        margin-left: 30px;
+    }
+    div.head #name-publish {
+        width: 620px;
+    }
+    div.features div.head input {
+        width: 440px;
+    }
+    div.genres {
+        position: relative;
+        top: -35px;
+        left: 600px;
+    }
+    div.genres .genre-title {
+        font-size: 13pt;
+    }
+    div.genres ul.list-genres  {
+        position: relative;
+        top: -40px;
+        left: 60px;
+        font-size: 13pt;
+    }
+    div.status-publish {
+        position: relative;
+        top: -60px;
+        left: 0;
+    }
+    div.status-publish .status-title {
+        font-size: 13pt;
+    }
+    div.status-publish ul.list-status {
+        position: relative;
+        top: -40px;
+        left: 75px;
+        font-size: 13pt;
+    }
+    div.rates {
+        position: relative;
+        top: -80px;
+        left: 0;
+    }
+    div.rates label {
+        font-size: 13pt;
+    }
+    div.rates input {
+        width: 40px;
+        padding: 5px;
+    }
+    div.sort-by {
+        position: relative;
+        top: -60px;
+        left: 0;
+    }
+    div.sort-by .sort-title {
+        font-size: 13pt;
+    }
+    div.sort-by ul.list-sorts {
+        font-size: 13pt;
+    }
+    div.features button.btn-primary {
+        width: 120px;
+        height: 40px;
+    }
 }
 /***************/
 
