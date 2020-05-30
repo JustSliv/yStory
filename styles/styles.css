@@ -144,6 +144,7 @@ footer {
     background-color: orange;
     border-color: #BF8440;
 }
+/*** END REGISTRATION ***/
 
 /*** SEARCH+ ***/
 div.features {
@@ -244,43 +245,22 @@ div.features button.btn-primary {
 /***************/
 
 /*** FAQ ***/
-div.content {
-    margin: 2% 0 16% 12%;
-    border: 2px solid lightgray;
-    border-radius: 5px;
-    width: 75%;
+.quest-header {
+    margin-bottom: 50px;
 }
-div.content h2 {
-    text-align: center;
+
+.qusetion-card {
+    margin-bottom: 15px!important;
+    border-color: #8f8f8f!important;
 }
-div.question {
-    position: relative;
-    top: -5px;
-    left: 10%;
-    padding: 5% 0 0% 5%;
+
+.question-bg {
+    background-color: white!important;
 }
-div.question:last-child {
-    padding-bottom: 10%;
+
+.question-btn {
+    font-size: 1em!important;
+    color: #ff9100!important;
 }
-div.question .title {
-    position: absolute;
-    top: 20px;
-    left: 2%;
-    font-size: 16pt;
-    font-weight: bold;
-    border: 3px solid black;
-    padding: 5px; 
-}
-div.content-question {
-    position: absolute;
-    top: 60px;
-    left: 2%;
-    margin: 0.5% 0 0 0;
-    width: 83%;
-    border: 2px solid lightgray;
-    color: white;
-    background-color: gray;
-    z-index: 1222;
-    display: none;
-}
+
 /***********/
