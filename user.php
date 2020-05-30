@@ -26,8 +26,8 @@
 </head>
 <body>
 	<div class="wrapper">
-		<?php require_once "header.html" ?>
-		<div class="main_info container">
+		<?php require_once "header.php" ?>
+		<div class="main-info container">
 			<div class="row">
 				<div class="col-3">
 					<div class="row">

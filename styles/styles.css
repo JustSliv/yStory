@@ -80,7 +80,6 @@ footer {
 }
 
 /*** USER PAGE ***/
-
 .userTab {
 	border: 1px solid #e1e2e6;
 	height: 500px;
@@ -106,6 +105,24 @@ footer {
 	border: 1px solid black;
 }
 
+.btn-settings {
+    background-color: #F7AA4F;
+    color: white;
+    border: 1px solid #B67426!important;
+    margin-top: 15px;
+    margin-left: 15px!important;
+}
+
+.header-settings {
+    margin-bottom: 50px!important;
+}
+
+#accept-btn {
+    background-color: orange;
+    border-color: #BF8440;
+    margin-top: 15px;
+}
+
 /*** Tabs ***/
 
 .tabbable, .nav-tabs {
@@ -118,13 +135,8 @@ footer {
 	white-space: nowrap;
 }
 
-.btn-settings {
-	background-color: #F7AA4F;
-	color: white;
-	border: 1px solid #B67426!important;
-	margin-top: 15px;
-	margin-left: 15px!important;
-}
+
+/*** END USER PAGE ***/
 
 /*** REGISTRATION ***/
 #reg-btn {
