@@ -1,3 +1,10 @@
+<?php 
+	require_once "scripts/authenfication.php";
+	$loginIn = new User();
+	$loginIn->login();
+	session_start();
+?>
+
 <header>
 	<div class="top-header">
 		<div class="container">
@@ -70,18 +77,16 @@
 						</div>
 						<div class="form-group">
 							<label for="inputPass">Пароль</label>
-							<input type="password" class="form-control" name="password" id="input_Pass">
+							<input type="password" class="form-control" name="pass" id="input_Pass">
 						</div>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<div class="text-center">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-						<button type="submit" name="login_sub" class="btn btn-primary">Войти</button>
 					</div>
-					
-				</div>
-			</form>
+					<div class="modal-footer">
+						<div class="text-center">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+							<button type="submit" name="login_sub" class="btn btn-primary">Войти</button>
+						</div>
+					</div>
+				</form>
+			</div>
 		</div>
-	</div>
-</header>
+	</header>

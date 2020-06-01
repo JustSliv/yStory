@@ -43,5 +43,24 @@ class User
 			return $failMsg;
 		}
 	}
+
+	function login() {
+		if (isset($_POST['login_sub'])) {
+			$pdo = new PDO('mysql:dbname=ystory;host=localhost', 'ystoryuser', 'ystorypass');
+			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+			//Поиск аккаунта в бд
+			$sql = $pdo->prepare('SELECT `login`, `pass` FROM `User` WHERE `login`=:log AND `pass`=:pass');
+			$sql->execute(array(':log' => $_POST['login'], ':pass' => $_POST['pass']));
+			$result = $sql->fetch(PDO::FETCH_ASSOC);
+
+			if (count($result) == 0) {
+				return $failMsg = "Введен неправильный логин или пароль";
+			} else {
+				$_SESSION['currentUser'] = $result['login'];
+				echo "abc";
+			}
+		}
+	}
 }
 ?>
