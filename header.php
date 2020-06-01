@@ -1,8 +1,7 @@
 <?php 
 	require_once "scripts/authenfication.php";
 	$loginIn = new User();
-	session_start();
-	$loginIn->login();
+	$msg = $loginIn->login();
 	
 ?>
 
@@ -85,6 +84,13 @@
 				</div>
 				<form method="post">
 					<div class="modal-body">
+						<?php 
+						if ($msg) {
+							echo '<div class="alert alert-danger" role="alert">'
+							. $msg .
+							'</div>';
+						}
+						?>
 						<div class="form-group">
 							<label for="inputLogin">Логин</label>
 							<input type="text" class="form-control" name="login" id="input_Login">

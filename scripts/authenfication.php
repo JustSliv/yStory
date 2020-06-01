@@ -10,13 +10,15 @@ class User
 		# code...
 	}
 	
+	private $failMsg;
+
 	function registraion() {
-		$failMsg = true;
+		$this->failMsg = true;
 
 		if (isset($_POST['accept'])) {
 
 			if ($_POST['pass'] != $_POST['confirm']) {
-				return $failMsg = "Пароли на совпадают!";
+				return $this->failMsg = "Пароли на совпадают!";
 			}
 
 			$pdo = new PDO('mysql:dbname=ystory;host=localhost', 'ystoryuser', 'ystorypass');
@@ -28,7 +30,7 @@ class User
 			$result = $sql->fetch(PDO::FETCH_ASSOC);
 
 			if($result) {
-				$failMsg = 'Пользователь с таким логином или адресом електронной почты уже существует';
+				$this->failMsg = 'Пользователь с таким логином или адресом електронной почты уже существует';
 			} else {
 				$newacc_stmt = $pdo->prepare('INSERT INTO `User`(`name`,`login`,`pass`,`email`,`status`,`avatar`) VALUES (:name, :log, :pass, :em, 0, "avatar-default.png")');
 				$newacc_stmt->execute(array(
@@ -38,9 +40,9 @@ class User
 					':em' => $_POST['email']
 				));
 
-				$failMsg = false;
+				$this->failMsg = false;
 			}
-			return $failMsg;
+			return $this->failMsg;
 		}
 	}
 
@@ -50,15 +52,34 @@ class User
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 			//Поиск аккаунта в бд
-			$sql = $pdo->prepare('SELECT `login`, `pass`, `name` FROM `User` WHERE `login`=:log AND `pass`=:pass');
+			$sql = $pdo->prepare('SELECT `login`, `pass`, `name`, `userID` FROM `User` WHERE `login`=:log AND `pass`=:pass');
 			$sql->execute(array(':log' => $_POST['login'], ':pass' => $_POST['pass']));
 			$result = $sql->fetch(PDO::FETCH_ASSOC);
 
-			if (count($result) == 0) {
-				return $failMsg = "Введен неправильный логин или пароль";
+			if (!is_array($result) || count($result) == 0) {
+				return $this->failMsg = "Введен неправильный логин или пароль";
 			} else {
 				$_SESSION['currentUser'] = $result['login'];
 				$_SESSION['username'] = $result['name'];
+				$_SESSION['id'] = $result['userID'];
+			}
+		}
+	}
+
+	function getInfo() {
+		if(isset($_SESSION['id'])) {
+			$pdo = new PDO('mysql:dbname=ystory;host=localhost', 'ystoryuser', 'ystorypass');
+			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+			//Поиск записи об аккаунте по уникальному идентификатору
+			$sql = $pdo->prepare('SELECT * FROM `User` WHERE `userID`=:id');
+			$sql->execute(array(':id' => $_SESSION['id']));
+			$result = $sql->fetch(PDO::FETCH_ASSOC);
+
+			if (count($result) > 0) {
+				return $result;
+			} else {
+				return $this->failMsg = "Информации об аккаунте не найдено";
 			}
 		}
 	}

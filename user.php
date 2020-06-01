@@ -1,3 +1,10 @@
+<?php
+	require_once "scripts/authenfication.php";
+	session_start();
+	$user = new User();
+	$allInfo = $user->getInfo();
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -33,10 +40,14 @@
 					<div class="row">
 						<div class="col-10">
 							<div class="mx-auto">
-								<img src="images/avatar-default.png" class="img-fluid avatar-img mx-auto">
+								<?php 
+									if (is_array($allInfo)) {
+										echo '<img src="images/user-photos/' . $allInfo['avatar'] . '" class="img-fluid avatar-img mx-auto">';
+									}
+								?>
 							</div>
 							<div class="mx-auto">
-								<button class="mx-auto btn btn-settings"><i class="fas fa-cog"></i> Настройки профиля</button>
+								<a href="settings.php"><button class="mx-auto btn btn-settings"><i class="fas fa-cog"></i> Настройки профиля</button></a>
 							</div>
 						</div>
 					</div>
