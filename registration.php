@@ -35,9 +35,9 @@
 			<h4 class="text-center">Регистрация</h4>
 			<?php 
 			if ($msg) {
-				echo '<div class="alert alert-danger" role="alert">
-						Пользователь с таким логином или адресом електронной почты уже существует.
-					</div>';
+				echo '<div class="alert alert-danger" role="alert">'
+						. $msg .
+					'</div>';
 			}
 			?>
 			<form method="post">

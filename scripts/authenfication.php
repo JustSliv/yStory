@@ -14,6 +14,11 @@ class User
 		$failMsg = true;
 
 		if (isset($_POST['accept'])) {
+
+			if ($_POST['pass'] != $_POST['confirm']) {
+				return $failMsg = "Пароли на совпадают!";
+			}
+
 			$pdo = new PDO('mysql:dbname=ystory;host=localhost', 'ystoryuser', 'ystorypass');
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -23,7 +28,7 @@ class User
 			$result = $sql->fetch(PDO::FETCH_ASSOC);
 
 			if($result) {
-				$failMsg = 'Пользователь с таким логином или адресом електронной почты';
+				$failMsg = 'Пользователь с таким логином или адресом електронной почты уже существует';
 			} else {
 				$newacc_stmt = $pdo->prepare('INSERT INTO `User`(`name`,`login`,`pass`,`email`,`status`,`avatar`) VALUES (:name, :log, :pass, :em, 0, "avatar-default.png")');
 				$newacc_stmt->execute(array(
