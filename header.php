@@ -33,7 +33,7 @@
 						<a href="user.php" id="helloLink">Здравствуйте, ' . $_SESSION['username'] . '!</a>
 						</li>
 						<li class="nav-item mr-auto">
-						<a href="logout.php"><button type="button" class="btn btn-light" id="btn_reg">Выход</button></a>
+						<a href="scripts/logout.php"><button type="button" class="btn btn-light" id="btn_reg">Выход</button></a>
 						</li>
 						</ul>';
 					} else {
