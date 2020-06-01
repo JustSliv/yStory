@@ -50,7 +50,7 @@ class User
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 			//Поиск аккаунта в бд
-			$sql = $pdo->prepare('SELECT `login`, `pass` FROM `User` WHERE `login`=:log AND `pass`=:pass');
+			$sql = $pdo->prepare('SELECT `login`, `pass`, `name` FROM `User` WHERE `login`=:log AND `pass`=:pass');
 			$sql->execute(array(':log' => $_POST['login'], ':pass' => $_POST['pass']));
 			$result = $sql->fetch(PDO::FETCH_ASSOC);
 
@@ -58,7 +58,7 @@ class User
 				return $failMsg = "Введен неправильный логин или пароль";
 			} else {
 				$_SESSION['currentUser'] = $result['login'];
-				echo "abc";
+				$_SESSION['username'] = $result['name'];
 			}
 		}
 	}

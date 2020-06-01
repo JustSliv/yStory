@@ -1,8 +1,9 @@
 <?php 
 	require_once "scripts/authenfication.php";
 	$loginIn = new User();
-	$loginIn->login();
 	session_start();
+	$loginIn->login();
+	
 ?>
 
 <header>
@@ -24,16 +25,29 @@
 							<button type="button" class="btn btn-light" id="btn_search">Искать</button>
 						</form>
 					</ul>
-					<ul class="navbar-nav ml-auto">
+					<!-- Кнопки Вход/Регистрация OR Текущий пользователь/Выход -->
+					<?php 
+					if (isset($_SESSION['username'])) {
+						echo '<ul class="navbar-nav ml-auto">
 						<li class="nav-ite mr-auto">
-							<button type="button" class="btn btn-light" id="btn_login" data-toggle="modal" data-target="#exampleModal">Войти</button>
+						<a href="user.php" id="helloLink">Здравствуйте, ' . $_SESSION['username'] . '!</a>
 						</li>
 						<li class="nav-item mr-auto">
-							<a href="registration.php"><button type="button" class="btn btn-light" id="btn_reg">Зарегистрироваться</button></a>
+						<a href="logout.php"><button type="button" class="btn btn-light" id="btn_reg">Выход</button></a>
 						</li>
-					</ul>
-				</div>
-				
+						</ul>';
+					} else {
+						echo '<ul class="navbar-nav ml-auto">
+						<li class="nav-ite mr-auto">
+						<button type="button" class="btn btn-light" id="btn_login" data-toggle="modal" data-target="#exampleModal">Войти</button>
+						</li>
+						<li class="nav-item mr-auto">
+						<a href="registration.php"><button type="button" class="btn btn-light" id="btn_reg">Зарегистрироваться</button></a>
+						</li>
+						</ul>';
+					}
+					?>					
+				</div>			
 			</nav>
 		</div>
 	</div>

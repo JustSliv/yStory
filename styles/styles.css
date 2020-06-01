@@ -22,7 +22,7 @@ html, body {
 	flex: 0 0 auto;
 }
 
-/*** MAIN CINTANT ***/
+/*** MAIN CONTANT ***/
 
 .main-info {
 	height: 100%;
@@ -43,6 +43,13 @@ html, body {
 .news_header {
 	margin-top: 45px;
 	margin-bottom: 50px;
+}
+
+#helloLink {
+    margin-right: 15px;
+    color: #fad566;
+    font-size: 1.4em;
+    font-family: Times New Roman;
 }
 /*** FOOTER ***/
 
