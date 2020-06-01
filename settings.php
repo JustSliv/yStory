@@ -1,5 +1,8 @@
 <?php 
-	
+require_once "scripts/authenfication.php";
+session_start();
+$user = new User();
+$allInfo = $user->getInfo();
 ?>
 
 <!DOCTYPE html>
@@ -35,29 +38,33 @@
 		<div class="main-info container">
 			<h4 class="text-center header-settings">Настройки профиля</h4>
 			<div class="row">
-				<div class="col-3">
+				<div class="col-4">
 					<div class="row">
-						<div class="col-10">
-							<img src="images/avatar-default.png" class="img-fluid avatar-img mx-auto">
-							<div class="text-center">
-								<button class="btn btn-primary" id="accept-btn">Сменить аватар</button>
-							</div>
+						<div class="col-10 avatar-column">
+							<img <?php echo "src=images/user-photos/" . $allInfo['avatar']; ?> class="img-fluid avatar-img mx-auto">
+							<form action="scripts/change-avatar.php" id="changeAvatarForm" method="post" enctype="multipart/form-data">
+								<input type="file" name="upload"><br>
+								<button class="btn btn-primary">Загрузить</button>
+							</form>
 						</div>
 					</div>
 				</div>
-
-				<div class="col-9">
+				<div class="col-8 inputs-column">
 					<form>
 						<div class="form-group">
 							<label for="changeLogin">Логин:</label>
-							<input class="form-control" type="text" name="changeLogin" id="changeLogin">
+							<input class="form-control" type="text" name="changeLogin" id="changeLogin" value=<?php echo $allInfo['login']; ?>>
 						</div>
 						<div class="form-group">
 							<label for="changeEmail">Адрес електронной почты:</label>
-							<input class="form-control" type="email" name="changeEmail" id="changeEmail">
+							<input class="form-control" type="email" name="changeEmail" id="changeEmail" value=<?php echo $allInfo['email']; ?>>
 						</div>
 						<hr>
 						<h5 class="text-center">Смена пароля</h5>
+						<div class="form-group">
+							<label for="currPass">Текущий пароль:</label>
+							<input class="form-control" type="password" name="currPass" id="currPass">
+						</div>
 						<div class="form-group">
 							<label for="changePass">Пароль:</label>
 							<input class="form-control" type="password" name="changePass" id="changePass">
@@ -71,18 +78,18 @@
 						</div>
 					</form>
 				</div>
+				</div>
 			</div>
 		</div>
-	</div>
-	<?php require_once "footer.html" ?>
+		<?php require_once "footer.html" ?>
 
 
-<!-- CSS only -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		<!-- CSS only -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-<!-- JS, Popper.js, and jQuery -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-</body>
-</html>
+		<!-- JS, Popper.js, and jQuery -->
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	</body>
+	</html>

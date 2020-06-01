@@ -130,6 +130,28 @@ footer {
     margin-top: 15px;
 }
 
+.avatar-column {
+    border-right: 1px solid lightgray;
+    overflow: hidden;
+}
+
+.inputs-column {
+    margin-left: 0px;
+}
+
+#changeAvatarForm {
+    margin-top: 15px;
+}
+
+#changeAvatarForm button {
+    margin-top: 10px;
+    font-size: 0.9vw;
+}
+
+#changeAvatarForm input {
+    font-size: 0.9vw;
+}
+
 /*** Tabs ***/
 
 .tabbable, .nav-tabs {
