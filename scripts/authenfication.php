@@ -5,18 +5,20 @@
  */
 class User
 {
+	//Подключение к БД
 	public $pdo;
+	//Сообщение об ошибках
 	private $failMsg;
 
-	function __construct()
-	{
+	//Конструктор с установкой соединения с БД
+	function __construct() {
 		$this->pdo = new PDO('mysql:dbname=ystory;host=localhost', 'ystoryuser', 'ystorypass');
 		$this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$this->failMsg = false;
 	}
 	
 	
-
+	//Метод регистрации
 	function registraion() {
 		$this->failMsg = true;
 
@@ -48,6 +50,7 @@ class User
 		}
 	}
 
+	//Метод авторизации
 	function login() {
 		if (isset($_POST['login_sub'])) {
 
@@ -66,6 +69,7 @@ class User
 		}
 	}
 
+	//Получения всей информации о текущем пользователе
 	function getInfo() {
 		if(isset($_SESSION['id'])) {
 
@@ -82,6 +86,7 @@ class User
 		}
 	}
 
+	//Метод смены имени и/или почты
 	function change_name_or_email() {
 		if (isset($_POST['change-btn'])) {
 			$countOfChanges = 0;
@@ -95,24 +100,61 @@ class User
 				$upd = $this->pdo->prepare('UPDATE `User` SET `name`=:name WHERE `userID`=:id');
 				$upd->execute(array(':name' => $_POST['changeName'], ':id' => $_SESSION['id']));
 				$countOfChanges++;
-				$_SESSION['result-msg'] = "Ваше имя было успешно изменено";
+				$_SESSION['result-msg'] = "Ваше имя было успешно изменено. ";
 			}
 
 			if ($currEmail != $_POST['changeEmail']) {
-				$upd = $this->pdo->prepare('UPDATE `User` SET `email`=:email WHERE `userID`=:id');
-				$upd->execute(array(':email' => $_POST['changeEmail'], ':id' => $_SESSION['id']));
-				$countOfChanges++;
-				if ($countOfChanges == 2) {
-					$_SESSION['result-msg'] = "Ваше имя и адрес електронной почты были изменены";
+				//Проверка на существование идентичной почты
+				$sql = $this->pdo->prepare('SELECT `email` FROM `User` WHERE `email`=:em');
+				$sql->execute(array(':em' => $_POST['changeEmail']));
+				$result = $sql->fetch(PDO::FETCH_ASSOC);
+
+				if (is_array($result)) {
+					$_SESSION['result-msg'] = "<p style='color: red'>Данный адрес електронной почты уже занят</p>";
+					if ($countOfChanges == 1) {
+						$_SESSION['result-msg'] .= "Ваше имя было успешно изменено.";
+					}
 				} else {
-					$_SESSION['result-msg'] = "Ваш адрес електронной почты был изменен";
+					$upd = $this->pdo->prepare('UPDATE `User` SET `email`=:email WHERE `userID`=:id');
+					$upd->execute(array(':email' => $_POST['changeEmail'], ':id' => $_SESSION['id']));
+					$countOfChanges++;
+					if ($countOfChanges == 2) {
+						$_SESSION['result-msg'] = "Ваше имя и адрес електронной почты были изменены";
+					} else {
+						$_SESSION['result-msg'] = "Ваш адрес електронной почты был изменен";
+					}
 				}
 			}
-
-			if ($countOfChanges == 0) {
-				unset($_SESSION['result-msg']);
+			if ($countOfChanges > 0) {
+			header("Location: settings.php?result=succes");
 			}
-			header("Location: settings.php");
+		}
+	}
+
+	//Метод смены пароля
+	function change_pass() {
+		if (isset($_POST['change-pass-btn'])) {
+			$sendedCurPass = $_POST['currPass'];
+			$sendedNewPass = $_POST['changePass'];
+			$sendedConfirmNewPass = $_POST['changeConfirm'];
+
+			$result = $this->getInfo();
+
+			$curPass = $result['pass'];
+			
+			if ($sendedCurPass == $curPass) {
+				if($sendedNewPass == $sendedConfirmNewPass) {
+					$change_pass_stmt = $this->pdo->prepare('UPDATE `User` SET `pass`=:pass WHERE `userID`=:id');
+					$change_pass_stmt->execute(array(':pass' => $sendedNewPass, ':id' => $_SESSION['id']));
+					$_SESSION['result-pass'] = "Пароль был успешно изменен";
+					echo "123";
+				} else {
+					$_SESSION['result-pass'] = "<p style='color: red'>Пароли не совпадают!</p>";
+				}
+			} else {
+				$_SESSION['result-pass'] = "<p style='color: red'>Введенный вами текущий пароль неправильный!</p>";
+			}
+			header("Location: settings.php?passchange=result");
 		}
 	}
 }
