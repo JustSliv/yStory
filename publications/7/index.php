@@ -1,3 +1,7 @@
+<?php 
+	session_start();
+	header("content-type: text/html");
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -8,8 +12,8 @@
 	<!-- TITLE -->
 	<title>yStory</title>
 	<!-- CSS LINKS -->
-	<link rel="stylesheet" href="styles/styles.css">
-	<link rel="stylesheet" type="text/css" href="styles/header-styles.css">
+	<link rel="stylesheet" href="../../styles/styles.css">
+	<link rel="stylesheet" type="text/css" href="../../styles/header-styles.css">
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<!-- Add the slick-theme.css if you want default styling -->
 	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.0/slick/slick.css"/>
@@ -27,11 +31,20 @@
 </head>
 <body>
 	<div class="wrapper">
-		<?php require_once "header.php" ?>
+		<?php require_once "../../header.php" ?>
 		<div class="main-info container">
-			
+			<?php
+			function file_get_contents_utf8($fn) {
+				$content = file_get_contents($fn);
+				return mb_convert_encoding($content, 'UTF-8',
+					mb_detect_encoding($content, 'UTF-8, ISO-8859-1', true));
+			}
+
+			$file = file_get_contents(glob("*.htm")[0]);
+			echo iconv('windows-1251', 'utf-8', $file)
+			?>
 		</div>
-		<?php require_once "footer.html" ?>
+		<?php require_once "../../footer.html" ?>
 	</div>
 </body>
 </html>

@@ -49,6 +49,10 @@
 							<div class="mx-auto">
 								<a href="settings.php"><button class="mx-auto btn btn-settings"><i class="fas fa-cog"></i> Настройки профиля</button></a>
 							</div>
+							<form action="scripts/add-publication.php" id="changeAvatarForm" method="post" enctype="multipart/form-data">
+								<input type="file" name="upload"><br>
+								<button class="btn btn-primary" >Загрузить</button>
+							</form>
 						</div>
 					</div>
 				</div>
