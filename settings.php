@@ -2,6 +2,7 @@
 require_once "scripts/authenfication.php";
 session_start();
 $user = new User();
+$user->change_name_or_email();
 $allInfo = $user->getInfo();
 ?>
 
@@ -32,11 +33,20 @@ $allInfo = $user->getInfo();
 
 </head>
 <body>
+	<?php 
+		$message = isset($_SESSION['result-msg']) ? $_SESSION['result-msg'] : false;
+	?>
 	<div class="wrapper">
 		<?php require_once "header.php" ?>
 
 		<div class="main-info container">
 			<h4 class="text-center header-settings">Настройки профиля</h4>
+			<?php
+			if ($message !== false) {
+				echo '<div class="alert alert-success">' . $message . '</div>';
+			}
+			?>
+			
 			<div class="row">
 				<div class="col-4">
 					<div class="row">
@@ -50,16 +60,21 @@ $allInfo = $user->getInfo();
 					</div>
 				</div>
 				<div class="col-8 inputs-column">
-					<form>
+					<form method="post">
 						<div class="form-group">
-							<label for="changeLogin">Логин:</label>
-							<input class="form-control" type="text" name="changeLogin" id="changeLogin" value=<?php echo $allInfo['login']; ?>>
+							<label for="changeName">Имя на сайте:</label>
+							<input class="form-control" type="text" name="changeName" pattern=".{3,}" id="changeName" value=<?php echo $allInfo['name']; ?>>
 						</div>
 						<div class="form-group">
 							<label for="changeEmail">Адрес електронной почты:</label>
-							<input class="form-control" type="email" name="changeEmail" id="changeEmail" value=<?php echo $allInfo['email']; ?>>
+							<input class="form-control" type="email" name="changeEmail" id="changeEmail" pattern="a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" value=<?php echo $allInfo['email']; ?>>
 						</div>
-						<hr>
+						<div class="text-center">
+							<button type="submit" class="btn btn-primary" id="reg-btn" name="change-btn">Сохранить изменения</button>
+						</div>
+					</form>
+					<hr>
+					<form>
 						<h5 class="text-center">Смена пароля</h5>
 						<div class="form-group">
 							<label for="currPass">Текущий пароль:</label>
@@ -74,7 +89,7 @@ $allInfo = $user->getInfo();
 							<input class="form-control" type="password" name="changeConfirm" id="changeConfirm">
 						</div>
 						<div class="text-center">
-							<button type="submit" class="btn btn-primary" id="reg-btn">Сохранить изменения</button>
+							<button type="submit" class="btn btn-primary" id="reg-btn">Изменить пароль</button>
 						</div>
 					</form>
 				</div>
