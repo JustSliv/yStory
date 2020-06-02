@@ -2,7 +2,11 @@
 require_once "scripts/authenfication.php";
 session_start();
 $user = new User();
+//Смена имена/почты
 $user->change_name_or_email();
+//Смена пароля
+$user->change_pass();
+//Массив для занесение данных в поля форм
 $allInfo = $user->getInfo();
 ?>
 
@@ -33,21 +37,25 @@ $allInfo = $user->getInfo();
 
 </head>
 <body>
+	<!-- Часть паттерна POST/Redirect/GET -->
 	<?php 
-		$message = isset($_SESSION['result-msg']) ? $_SESSION['result-msg'] : false;
+		$message_name = isset($_SESSION['result-msg']) ? $_SESSION['result-msg'] : false;
+		$message_pass = isset($_SESSION['result-pass']) ? $_SESSION['result-pass'] : false;
 	?>
+	<!-- MAIN CONTANT -->
 	<div class="wrapper">
 		<?php require_once "header.php" ?>
-
 		<div class="main-info container">
 			<h4 class="text-center header-settings">Настройки профиля</h4>
+			<!-- Отоборажение сообщения в случае изменения имени/почты -->
 			<?php
-			if ($message !== false) {
-				echo '<div class="alert alert-success">' . $message . '</div>';
+			if (isset($_GET['result'])) {
+				echo '<div class="alert alert-success">' . $message_name . '</div>';
 			}
 			?>
 			
 			<div class="row">
+				<!-- Смена аватара (вложенные колонны для уменьшения размера изображения)-->
 				<div class="col-4">
 					<div class="row">
 						<div class="col-10 avatar-column">
@@ -59,7 +67,9 @@ $allInfo = $user->getInfo();
 						</div>
 					</div>
 				</div>
+				<!-- Смена других параметров аккаунта -->
 				<div class="col-8 inputs-column">
+					<!-- Почта и имя -->
 					<form method="post">
 						<div class="form-group">
 							<label for="changeName">Имя на сайте:</label>
@@ -73,8 +83,18 @@ $allInfo = $user->getInfo();
 							<button type="submit" class="btn btn-primary" id="reg-btn" name="change-btn">Сохранить изменения</button>
 						</div>
 					</form>
+
 					<hr>
-					<form>
+
+					<?php 
+						if (isset($_GET['passchange'])) {
+							if ($_GET['passchange'] == 'result') {
+								echo '<div class="alert alert-success">' . $message_pass . '</div>';
+							}
+						}
+					?>
+					<!-- Пароль -->
+					<form method="post">
 						<h5 class="text-center">Смена пароля</h5>
 						<div class="form-group">
 							<label for="currPass">Текущий пароль:</label>
@@ -86,10 +106,10 @@ $allInfo = $user->getInfo();
 						</div>
 						<div class="form-group">
 							<label for="changeConfirm">Подтвердите пароль:</label>
-							<input class="form-control" type="password" name="changeConfirm" id="changeConfirm">
+							<input class="form-control" type="password" name="changeConfirm" pattern="(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,16}$" id="changeConfirm">
 						</div>
 						<div class="text-center">
-							<button type="submit" class="btn btn-primary" id="reg-btn">Изменить пароль</button>
+							<button type="submit" class="btn btn-primary" name="change-pass-btn" pattern="(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,16}$" id="reg-btn">Изменить пароль</button>
 						</div>
 					</form>
 				</div>
