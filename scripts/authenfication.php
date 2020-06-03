@@ -74,7 +74,7 @@ class User
 		if(isset($_SESSION['id'])) {
 
 			//Поиск записи об аккаунте по уникальному идентификатору
-			$sql = $this->pdo->prepare('SELECT * FROM `User` WHERE `userID`=:id');
+			$sql = $this->pdo->prepare('SELECT * FROM `User` WHERE `UserID`=:id');
 			$sql->execute(array(':id' => $_SESSION['id']));
 			$result = $sql->fetch(PDO::FETCH_ASSOC);
 

@@ -59,7 +59,7 @@ $allInfo = $user->getInfo();
 				<div class="col-4">
 					<div class="row">
 						<div class="col-10 avatar-column">
-							<img <?php echo "src=images/user-photos/" . $allInfo['avatar']; ?> class="img-fluid avatar-img mx-auto">
+							<img <?php echo "src=images/user-photos/" . $allInfo['Avatar']; ?> class="img-fluid avatar-img mx-auto">
 							<form action="scripts/change-avatar.php" id="changeAvatarForm" method="post" enctype="multipart/form-data">
 								<input type="file" name="upload"><br>
 								<button class="btn btn-primary">Загрузить</button>
@@ -73,11 +73,11 @@ $allInfo = $user->getInfo();
 					<form method="post">
 						<div class="form-group">
 							<label for="changeName">Имя на сайте:</label>
-							<input class="form-control" type="text" name="changeName" pattern=".{3,}" id="changeName" value=<?php echo $allInfo['name']; ?>>
+							<input class="form-control" type="text" name="changeName" pattern=".{3,}" id="changeName" value=<?php echo $allInfo['Name']; ?>>
 						</div>
 						<div class="form-group">
 							<label for="changeEmail">Адрес електронной почты:</label>
-							<input class="form-control" type="email" name="changeEmail" id="changeEmail" pattern="a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" value=<?php echo $allInfo['email']; ?>>
+							<input class="form-control" type="email" name="changeEmail" id="changeEmail" pattern="a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" value=<?php echo $allInfo['Email']; ?>>
 						</div>
 						<div class="text-center">
 							<button type="submit" class="btn btn-primary" id="reg-btn" name="change-btn">Сохранить изменения</button>

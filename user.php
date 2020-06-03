@@ -12,6 +12,8 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="google-signin-scope" content="profile email">
+	<meta name="google-signin-client_id" content="662386946843-gpn76dh7ohhjn7ocq53s2diqbqnnnh8j.apps.googleusercontent.com">
 	<!-- TITLE -->
 	<title>yStory</title>
 	<!-- CSS LINKS -->
@@ -30,6 +32,7 @@
 	<script type="text/javascript" src="scripts/script.js"></script>
 	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="scripts/bootstrap.js"></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 <body>
 	<div class="wrapper">
@@ -42,7 +45,7 @@
 							<div class="mx-auto">
 								<?php 
 									if (is_array($allInfo)) {
-										echo '<img src="images/user-photos/' . $allInfo['avatar'] . '" class="img-fluid avatar-img mx-auto">';
+										echo '<img src="images/user-photos/' . $allInfo['Avatar'] . '" class="img-fluid avatar-img mx-auto">';
 									}
 								?>
 							</div>
@@ -79,30 +82,7 @@
 					<div class="tab-content" id="myTabContent">
 						<div class="tab-pane fade show active userTab overflow-auto" id="lists" role="tabpanel" aria-labelledby="lists-tab">
 							<!-- INNER TABS -->
-							<nav class="tabbable">
-								<ul class="nav nav-tabs" id="inner-tabs" role="tablist">
-									<li class="nav-item">
-										<a class="nav-link active" id="list1-tab" data-toggle="tab" href="#list1" role="tab" aria-controls="list1" aria-selected="true">Сборники</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" id="list2-tab" data-toggle="tab" href="#list2" role="tab" aria-controls="list2" aria-selected="false">Подписки</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" id="list3-tab" data-toggle="tab" href="#list3" role="tab" aria-controls="list3" aria-selected="false">Подписчики</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" id="list4-tab" data-toggle="tab" href="#list4" role="tab" aria-controls="list4" aria-selected="false">Ваши произведения</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" id="list5-tab" data-toggle="tab" href="#list5" role="tab" aria-controls="list5" aria-selected="false">Уведомления</a>
-									</li>
-								</ul>
-							</nav>
-							<div class="tab-content" id="nav-tabContent">
-								<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">...</div>
-								<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
-								<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
-							</div>
+							
 							<!-- INNER TABS END --->
 						</div>
 						<div class="tab-pane fade userTab" id="subcribes" role="tabpanel" aria-labelledby="subcribes-tab">...</div>
